@@ -1,0 +1,22 @@
+只做抗干扰，不做示假。只做迭代，不做多智能体； 一个地面用户，一个无人机基站，一个干扰源。不考虑同频干扰，用户移动。
+1、训练agent
+敌方设置为简单扫频干扰，训练agent躲避，获取模型agent1；
+动作空间：我方信息
+状态更新：根据时隙补充敌方信息；合并为双方的状态信息；
+model_0102是固定敌方扫频策略训练的；0103是敌方随机干扰训练出来的；
+PPO_u_0115是表现正确的agent模型，敌方随机干扰训练出来的。对应u曲线文件夹中PPO-6。
+
+2、训练敌方jamming
+导入agent1作为输入，训练敌方干扰，获取敌方智能模型jamming
+动作空间：敌方信息
+状态更新：我方的动作需要输入整个state得到，在step编写
+PPO_j_
+
+3、训练agent2
+导入智能干扰模型jamming作为输入，训练agent，获取智能抗干扰模型agent2
+
+ps 可视化
+(RL) E:\学习II\2023\3项目\54所对抗博弈决策\code>tensorboard --logdir ./PPO_tensorboard/
+tensorboard --logdir ./PPO_tensorboard_j/
+tensorboard --logdir ./PPO_tensorboard_u/
+对应总的 jamming 和agent
