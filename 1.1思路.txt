@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 只做抗干扰，不做示假。只做迭代，不做多智能体； 一个地面用户，一个无人机基站，一个干扰源。不考虑同频干扰，用户移动。
 1、训练agent
 敌方设置为简单扫频干扰，训练agent躲避，获取模型agent1；
@@ -20,3 +21,12 @@ ps 可视化
 tensorboard --logdir ./PPO_tensorboard_j/
 tensorboard --logdir ./PPO_tensorboard_u/
 对应总的 jamming 和agent
+=======
+只做抗干扰，不做示假。只做迭代，不做多智能体；
+1、训练agent
+敌方设置为简单扫频干扰，训练agent躲避，获取模型agent1；
+2、训练敌方jamming
+导入agent1作为输入，训练敌方干扰，获取敌方智能模型jamming
+3、训练agent2
+导入智能干扰模型jamming作为输入，训练agent，获取智能抗干扰模型agent2
+>>>>>>> c11fe143e18899b5eb4f502dd0969ebfa23e8979
